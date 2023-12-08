@@ -53,7 +53,7 @@ include("../static/php/mysqlconnection.php");
             </div>
         </div>
     </div>
-    <h2 style="margin: 1rem;">Lista</h2>
+    <h2 style="margin: 1rem;">Lista (A - Z)</h2>
     <div class="container text-center">
         <ul class="list-group list-group-flush">
             <?php
@@ -66,12 +66,8 @@ include("../static/php/mysqlconnection.php");
 
                     //Nome e preço produto
                     echo "<p id='nameprodtxt'>" . $row["name"] . "</p>";
+                    echo "ID: ".$row["id"];
                     echo "<p id='priceprodtxt'>R$" . $row["price"] . "</p>";
-
-                    //Forms para editar
-                    echo "<button type='button' class='btn btn-warning'>Editar</button>";
-
-                    echo "<div style='margin:1rem;'></div>";
 
                     //Forms para deletar
                     echo "<form action='../delconf/index.php' method='get'>";

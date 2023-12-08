@@ -4,6 +4,7 @@
 session_start();
 include("../static/php/verification.php");
 include("../static/php/mysqlconnection.php");
+include("../static/php/urls.php");
 ?>
 
 <head>
@@ -40,7 +41,7 @@ include("../static/php/mysqlconnection.php");
 if (isset($_GET["send"])) {
 
     mysqli_query($conn, $_SESSION["commanddeltemp"]);
-    header("Location: ../admpage/");
+    header("Location: ../admpage/"); //não conseguir usar a url
     $_SESSION["commanddeltemp"] = null;
     exit();
 }
