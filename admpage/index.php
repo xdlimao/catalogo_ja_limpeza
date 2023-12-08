@@ -3,6 +3,7 @@
 <?php
 session_start();
 include("../static/php/verification.php");
+include("../static/php/mysqlconnection.php");
 ?>
 
 <head>
@@ -52,7 +53,42 @@ include("../static/php/verification.php");
             </div>
         </div>
     </div>
+    <h2 style="margin: 1rem;">Lista</h2>
+    <div class="container text-center">
+        <ul class="list-group list-group-flush">
+            <?php
+            $sqllist1 = "SELECT * FROM produto ORDER BY name ASC";
+            $result = mysqli_query($conn, $sqllist1);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<li class='list-group-item'>";
+
+                    //Nome e preço produto
+                    echo "<p id='nameprodtxt'>" . $row["name"] . "</p>";
+                    echo "<p id='priceprodtxt'>R$" . $row["price"] . "</p>";
+
+                    //Forms para editar
+                    echo "<button type='button' class='btn btn-warning'>Editar</button>";
+
+                    echo "<div style='margin:1rem;'></div>";
+
+                    //Forms para deletar
+                    echo "<form action='../delconf/index.php' method='get'>";
+                    echo "<button type='submit' name='id' value=" . $row["id"] . " class='btn btn-danger'>Deletar</button>";
+                    echo "
+                    <input type='hidden' name='name' value='" . $row["name"] . "'>
+                    </form>"; //hidden é um input vazio que não aparece, muito útil!
+                    $_SESSION["commanddeltemp"] = null; //Reiniciando a SESSION para DELETE, e assim evitar possiveis erros.
+
+                    echo "</li>";
+                }
+            }
+            ?>
+        </ul>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
+
 </html>

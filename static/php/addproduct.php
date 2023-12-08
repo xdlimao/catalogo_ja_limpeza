@@ -4,13 +4,15 @@ include("urls.php");
 
 //https://stackoverflow.com/questions/8923114/how-to-reset-auto-increment-in-mysql
 
+//ALTER TABLE produto AUTO_INCREMENT = 1
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nameprod = $_POST["name"];
     $priceprod = $_POST["price"];
 
    function returntopage($url_admpage){
         echo "<h1>Erro: Não insira valores nulos!</h1>";
-        echo "<a href=".$url_admpage."><h1>Voltar</h1></a>";
+        echo "<a href=".$url_admpage."><h1>Aperte aqui para voltar</h1></a>";
    }
 
     if (empty($nameprod)) {
