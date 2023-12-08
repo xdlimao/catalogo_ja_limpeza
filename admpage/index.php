@@ -15,7 +15,7 @@ include("../static/php/mysqlconnection.php");
 </head>
 
 <body>
-    <nav class="navbar" id="navbar">
+    <nav class="navbar fixed-top" id="navbar">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Produtos</span>
 
