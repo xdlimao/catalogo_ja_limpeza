@@ -12,25 +12,6 @@ include("../static/php/mysqlconnection.php");
     <title>Pedido</title>
 </head>
 
-<?php
-/*
-https://codepen.io/NinaLena/pen/jmqwxb
-    <div class="form-group">
-        <label>Quantity: </label>
-        <div class="input-group">
-            <div class="input-group-btn">
-                <button id="down" class="btn btn-default" onclick=" down('0')"><span class="glyphicon glyphicon-minus"></span></button>
-            </div>
-            <input type="text" id="myNumber" class="form-control input-number" value="1" />
-            <div class="input-group-btn">
-                <button id="up" class="btn btn-default" onclick="up('10')"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-        </div>
-    </div>
-*/
-?>
-
-
 <body>
     <form action="../finalizar/" method="post">
         <nav class="navbar fixed-top" id="navbar">
