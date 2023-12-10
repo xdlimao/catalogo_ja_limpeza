@@ -66,10 +66,10 @@ include("../static/php/mysqlconnection.php");
         
                         <div class="text-center">
                             <label for="numberinput"><i>Quantidade: &nbsp;</i></label>
-                            <input type="number" name="'.$row["id"].'q" id="numberinput" value="1" min="1" step="1" style="width: 4rem; margin-right:3rem;" required>
+                            <input type="number" name="' . $row["id"] . 'q" id="numberinput" value="1" min="1" step="1" style="width: 4rem; margin-right:3rem;" required>
         
-                            <input type="checkbox" name="'.$row["id"].'" value="'.$row["name"].'" class="btn-check" id="btn-check-outlined'.$row["id"].'" autocomplete="off">
-                            <label class="btn btn-outline-success" for="btn-check-outlined'.$row["id"].'">Adicionar produto</label><br>
+                            <input type="checkbox" name="' . $row["id"] . '" value="' . $row["name"] . '" class="btn-check" id="btn-check-outlined' . $row["id"] . '" autocomplete="off">
+                            <label class="btn btn-outline-success" for="btn-check-outlined' . $row["id"] . '">Adicionar produto</label><br>
         
                             <!--<a href="#" class="btn btn-primary">Botão 1</a>-->
                         </div>
