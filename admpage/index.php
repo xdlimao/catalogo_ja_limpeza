@@ -40,10 +40,10 @@ include("../static/php/mysqlconnection.php");
                 <form action="../static/php/addproduct.php" method="post">
                     <div class="modal-body">
                         <label for="nameprod">Produto (Nome Completo, Ex: Sabão 5L)</label>
-                        <input type="text" name="name" id="nameprod">
+                        <input type="text" name="name" id="nameprod" required>
                         <br>
                         <label for="priceprod">Preço (Entre 0,01 e 9.999.999,99)</label>
-                        <input type="number" name="price" id="priceprod" min="0" max="10000000" step=".01">
+                        <input type="number" name="price" id="priceprod" min="0" max="10000000" step=".01" required>
                         <!--https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number-->
                     </div>
                     <div class="modal-footer">
