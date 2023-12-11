@@ -1,1 +1,1 @@
-{"version":3,"sources":["navbar.scss","colors.scss","finalizar.css"],"names":[],"mappings":"AAEA;EACI,yBCHG;ACEP;;AFIA;EACI,gBAAA;AEDJ","file":"finalizar.css"}
+{"version":3,"sources":["navbar.scss","colors.scss","finalizar.css","finalizar.scss"],"names":[],"mappings":"AAEA;EACI,yBCHG;ACEP;;AFIA;EACI,gBAAA;AEDJ;;ACHA;;CAAA;AAGA;EAGI,uBAAA;EACA,aAAA;EACA,iBAAA;EAEA,mBAAA;EACA,mDAAA;EACA,YAAA;EAEA,uBAAA;EACA,8BAAA;EAEA,8CAAA;ADMJ;;ACHE;EACC,aAtBI;EAuBJ,YAvBI;AD6BP","file":"finalizar.css"}

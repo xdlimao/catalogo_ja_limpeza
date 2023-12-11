@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+session_start();
 include("../static/php/mysqlconnection.php");
+//estou passando no POST a seguinte ordem: Quantidade, Preço, Id e Nome
 ?>
 
 <head>
@@ -24,28 +26,8 @@ include("../static/php/mysqlconnection.php");
         </nav>
 
         <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    &nbsp;
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Sabão Líquido 5L</h5>
-                    <p class="card-text">R$22,00</p>
-
-                    <div class="text-center">
-                        <label for="numberinput"><i>Quantidade: &nbsp;</i></label>
-                        <input type="number" name="" id="numberinput" value="1" min="1" step="1" style="width: 4rem; margin-right:3rem;" required>
-
-                        <input type="checkbox" name="" value="" class="btn-check" id="btn-check-outlined" autocomplete="off">
-                        <label class="btn btn-outline-success" for="btn-check-outlined">Adicionar produto</label><br>
-
-                        <!--<a href="#" class="btn btn-primary">Botão 1</a>-->
-                    </div>
-
-                </div>
-            </div>
-            <br>
             <?php
+            $_SESSION["lastid"] = 1;
             $sql = "SELECT * FROM produto ORDER BY name ASC";
             $result = mysqli_query($conn, $sql);
 
@@ -55,6 +37,10 @@ include("../static/php/mysqlconnection.php");
                     //$row["name"]
                     //$row["price"]
 
+                    //Essa variavel no session é a que vai falar o ultimo ID criado para conseguir fazer a lógica do finalizar pedido
+                    if ($row["id"] >= $_SESSION["lastid"]) {
+                        $_SESSION["lastid"] = $row["id"];
+                    }
                     echo '
                 <div class="card">
                     <div class="card-header">
@@ -67,11 +53,10 @@ include("../static/php/mysqlconnection.php");
                         <div class="text-center">
                             <label for="numberinput"><i>Quantidade: &nbsp;</i></label>
                             <input type="number" name="' . $row["id"] . 'q" id="numberinput" value="1" min="1" step="1" style="width: 4rem; margin-right:3rem;" required>
-        
+                            <input type="hidden" name="' . $row["id"] . 'p" value="' . $row["price"] . '">
+                            <input type="hidden" name="' . $row["id"] . 'id" value="' . $row["id"] . '">
                             <input type="checkbox" name="' . $row["id"] . '" value="' . $row["name"] . '" class="btn-check" id="btn-check-outlined' . $row["id"] . '" autocomplete="off">
                             <label class="btn btn-outline-success" for="btn-check-outlined' . $row["id"] . '">Adicionar produto</label><br>
-        
-                            <!--<a href="#" class="btn btn-primary">Botão 1</a>-->
                         </div>
         
                     </div>
@@ -83,7 +68,6 @@ include("../static/php/mysqlconnection.php");
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="../static/js/numbersincrementer.js"></script>
 </body>
 
 </html>

@@ -4,4 +4,24 @@
 
 body {
   margin-top: 4rem;
+}
+
+/*
+Feito com: https://enjoycss.com/
+*/
+#addrpr {
+  box-sizing: content-box;
+  padding: 27px;
+  border: 1px solid;
+  border-radius: 20px;
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: black;
+  text-overflow: ellipsis;
+  background: rgb(209, 209, 209);
+  box-shadow: 5px 5px 8px 2px rgba(0, 0, 0, 0.4);
+}
+
+#send {
+  height: 100px;
+  width: 100px;
 }/*# sourceMappingURL=finalizar.css.map */
