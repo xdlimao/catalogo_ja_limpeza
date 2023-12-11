@@ -8,6 +8,7 @@ lastid = ultimo id do database para loops
 
 var name = + "number inside string"
 esse + transforma string para numero (int e float)
+Para checar se existe algo escrito em um HTML (innerHTML, ou seja, dentro das tags) é preciso verificar apenas o document, sem atribuir a uma variavel, se não da erro no script inteiro! veja abaixo no primeiro if.
 */
 
 //Preço
