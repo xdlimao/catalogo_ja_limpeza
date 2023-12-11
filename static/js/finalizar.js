@@ -69,9 +69,7 @@ function addressdefine() {
     }
 
     if (verificador5 === 5) {
-        alert(nome + numero + complemento + rua + bairro + cidade)
-        //Formula a string melhor depois para o zap aqui
-        endereco = nome + numero + complemento + rua + bairro + cidade
+        endereco = nome + "; " + rua + ", " + numero + ", " + bairro + ", " + complemento + ", " + cidade + "."
     } else {
         alert("Preencha todos os campos de endereço obrigatórios")
         nome = document.getElementById("name").value = ""
@@ -85,11 +83,49 @@ function addressdefine() {
 }
 
 //Falta Quantidade e Nome do Produto Function para formar a string do zap
+//Quantidade e Nome
+let produtos = []
+let quantity
+let name
+function quantityandproduct() {
+    produtos = []
+    for (let i = 0; i <= lastid; i++) {
+        if (document.getElementById(i)) {
+            quantity = document.getElementById(i + "q").innerHTML
+            name = document.getElementById(i).innerHTML
+            produtos.push(quantity + " " + name) //Ele adiciona apenas o que existem. Se realmente encontrar um produto, será adicionado no 0
+        }
+    }
+}
 
+function criarStringProdutos(array) {
+    return array.join('\n');
+}
+
+let produtoslista //aqui está todos os produtos do array já formatados para enviar
 //Função Principal
 function start() {
     addressdefine()
-    if (endereco != null) {
-        console.log(endereco)
+    quantityandproduct()
+    produtoslista = criarStringProdutos(produtos)
+    let link = "https://wa.me/5511959261601?text="
+    let textencoded
+    let text = `
+*Endereço:*         
+`+
+        endereco
+        + `
+    
+*Itens:*
+`+
+        produtoslista
+        + `
+
+Total pedido: R$` + precofinal + ``;
+
+    textencoded = encodeURIComponent(text);
+    if (endereco != undefined) {
+        link = "https://wa.me/5511959261601?text=" + textencoded
+        window.location.href = link;
     }
 }
