@@ -34,3 +34,6 @@
     </div>
 </div>
 <br>
+
+os headers ficam dando problema, usar echo script window location href caso precise redirecionar a algum outro lugar
+Session start tem que ficar antes do doctype começar

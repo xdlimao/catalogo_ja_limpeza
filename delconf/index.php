@@ -1,7 +1,9 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
-session_start();
 include("../static/php/verification.php");
 include("../static/php/mysqlconnection.php");
 include("../static/php/urls.php");

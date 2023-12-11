@@ -1,7 +1,9 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
-session_start();
 include("../static/php/mysqlconnection.php");
 //estou passando no POST a seguinte ordem: Quantidade, Preço, Id e Nome
 ?>

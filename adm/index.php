@@ -1,8 +1,10 @@
+<?php
+    session_start(); //sempre vem primeiro para garantir tudo funcionando
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <?php
-    session_start(); //sempre vem primeiro para garantir tudo funcionando
     include("../static/php/mysqlconnection.php");
     include("../static/php/urls.php");
 ?>
