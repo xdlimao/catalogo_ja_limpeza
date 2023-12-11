@@ -16,18 +16,20 @@ let lastid = + document.getElementById("lastid").value
 let pstring //recebe string
 let psnumber //deixa a string apenas com numeros
 let preco //deixa os numeros no tipo numero
+let precoindiv = []
 let precofinal = 0 //soma tudo - valor final da compra
 for (let i = 0; i <= lastid; i++) {
     if (document.getElementById(i + "p")) {
         pstring = document.getElementById(i + "p").innerHTML
         psnumber = pstring.replace(/\D/g, "");
         preco = + psnumber
+        precoindiv.push(preco)
+        console.log("Tamanho " + precoindiv.length)
+        console.log("Preço de " + i + ": " + precoindiv[1])
         precofinal = precofinal + preco
     }
 }
-//Depois no futuro, salvar cada preço de cada produto pra apresentar na mensagem do zap
 document.getElementById("result").innerHTML = "Total do pedido: R$" + precofinal
-//precofinal ja está disponivel para ser usado
 
 //Endereço
 let endereco
@@ -88,13 +90,13 @@ function addressdefine() {
 let produtos = []
 let quantity
 let name
-function quantityandproduct() {
+function quantityproductandprice() {
     produtos = []
     for (let i = 0; i <= lastid; i++) {
         if (document.getElementById(i)) {
             quantity = document.getElementById(i + "q").innerHTML
             name = document.getElementById(i).innerHTML
-            produtos.push(quantity + " " + name) //Ele adiciona apenas o que existem. Se realmente encontrar um produto, será adicionado no 0
+            produtos.push(quantity + " " + name + " " + "   R$" + precoindiv[produtos.length]) //Ele adiciona apenas o que existem. Se realmente encontrar um produto, será adicionado no 0
         }
     }
 }
@@ -104,10 +106,12 @@ function criarStringProdutos(array) {
 }
 
 let produtoslista //aqui está todos os produtos do array já formatados para enviar
+
+
 //Função Principal
 function start() {
     addressdefine()
-    quantityandproduct()
+    quantityproductandprice()
     produtoslista = criarStringProdutos(produtos)
     let link = "https://wa.me/5511959261601?text="
     let textencoded
@@ -122,8 +126,8 @@ function start() {
         produtoslista
         + `
 
-Total pedido: R$` + precofinal + ``;
-
+*Total pedido: R$` + precofinal + `*`;
+    console.log(text)
     textencoded = encodeURIComponent(text);
     if (endereco != undefined) {
         link = "https://wa.me/5511959261601?text=" + textencoded
